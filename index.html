@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>King Food</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -15,12 +17,12 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
 :root{
     --red:#d61d1d;
-    --dark:#1c1c1c;
-    --gray:#2a2a2a;
+    --dark:#1b1b1b;
     --white:#fff;
 }
 
@@ -30,7 +32,7 @@ body{
     color:#222;
 }
 
-/* ================= HEADER ================= */
+/* TOP BAR */
 
 .top-bar{
     background:#111;
@@ -42,15 +44,28 @@ body{
     font-size:14px;
 }
 
+.top-icons{
+    display:flex;
+    align-items:center;
+}
+
+.top-icons a{
+    color:#fff;
+    text-decoration:none;
+}
+
 .top-icons i{
-    margin-left:15px;
+    margin-left:18px;
     cursor:pointer;
     transition:.3s;
+    font-size:18px;
 }
 
 .top-icons i:hover{
     color:var(--red);
 }
+
+/* NAVBAR */
 
 .navbar{
     background:#1a1a1a;
@@ -58,12 +73,15 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    border-top:1px solid #2c2c2c;
+    border-top:1px solid #2d2d2d;
+    position:sticky;
+    top:0;
+    z-index:999;
 }
 
 .logo{
-    font-size:38px;
     color:#fff;
+    font-size:38px;
     font-weight:800;
     font-style:italic;
 }
@@ -82,6 +100,7 @@ body{
     text-decoration:none;
     transition:.3s;
     font-size:17px;
+    font-weight:600;
 }
 
 .nav-links a:hover{
@@ -94,33 +113,32 @@ body{
 }
 
 .search-box input{
-    width:240px;
+    width:220px;
     padding:10px;
     border:none;
     outline:none;
-    background:#fff;
 }
 
 .search-box button{
-    background:var(--red);
-    color:#fff;
-    border:none;
     width:50px;
     height:42px;
+    border:none;
+    background:var(--red);
+    color:#fff;
     cursor:pointer;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
+    min-height:90vh;
     background:#222;
-    min-height:540px;
     position:relative;
-    overflow:hidden;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     padding:70px 8%;
+    overflow:hidden;
 }
 
 .hero::before{
@@ -138,19 +156,15 @@ body{
 .hero-content{
     position:relative;
     z-index:2;
-    max-width:500px;
+    max-width:520px;
 }
 
 .hero-content h1{
     color:#fff;
-    font-size:62px;
+    font-size:65px;
     line-height:1.3;
     margin-bottom:20px;
     font-weight:800;
-}
-
-.hero-content h1 span{
-    color:var(--red);
 }
 
 .hero-content p{
@@ -164,7 +178,7 @@ body{
     display:inline-block;
     background:var(--red);
     color:#fff;
-    padding:14px 35px;
+    padding:15px 38px;
     text-decoration:none;
     transition:.3s;
     font-weight:bold;
@@ -175,7 +189,7 @@ body{
     color:#000;
 }
 
-/* Pizza Illustration */
+/* PIZZA DESIGN */
 
 .hero-drawing{
     position:relative;
@@ -197,10 +211,10 @@ body{
 .circle-pizza::before{
     content:"🍕";
     position:absolute;
-    font-size:120px;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
+    font-size:120px;
 }
 
 .food-icons{
@@ -210,8 +224,8 @@ body{
 
 .food-icons i{
     color:#fff;
+    font-size:30px;
     position:absolute;
-    font-size:32px;
     opacity:.7;
 }
 
@@ -221,25 +235,38 @@ body{
 }
 
 .food-icons i:nth-child(2){
-    bottom:40px;
-    left:20px;
+    bottom:30px;
+    left:10px;
 }
 
 .food-icons i:nth-child(3){
     top:70px;
-    left:10px;
+    left:0;
 }
 
 .food-icons i:nth-child(4){
     bottom:0;
-    right:30px;
+    right:20px;
 }
 
-/* ================= POSTS ================= */
+/* MENU */
 
 .posts{
-    padding:70px 8%;
+    padding:80px 8%;
     background:#fff;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+}
+
+.section-title span{
+    color:var(--red);
 }
 
 .posts-grid{
@@ -251,11 +278,12 @@ body{
 .post-card{
     background:#fff;
     border:1px solid #eee;
+    overflow:hidden;
     transition:.3s;
 }
 
 .post-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
     box-shadow:0 10px 25px rgba(0,0,0,.1);
 }
 
@@ -273,7 +301,6 @@ body{
 .post-content h3{
     font-size:28px;
     margin-bottom:15px;
-    color:#222;
 }
 
 .post-content p{
@@ -281,7 +308,7 @@ body{
     line-height:2;
 }
 
-/* ================= BOOKING ================= */
+/* BOOKING */
 
 .booking{
     background:#1a1a1a;
@@ -292,14 +319,14 @@ body{
     max-width:700px;
     margin:auto;
     background:#222;
-    padding:40px;
+    padding:45px;
 }
 
 .booking-box h2{
     color:#fff;
     text-align:center;
     margin-bottom:30px;
-    font-size:38px;
+    font-size:40px;
 }
 
 .booking-box h2 span{
@@ -329,13 +356,13 @@ body{
 .booking-btn{
     width:100%;
     padding:16px;
-    background:var(--red);
     border:none;
+    background:var(--red);
     color:#fff;
     font-size:18px;
+    font-weight:bold;
     cursor:pointer;
     transition:.3s;
-    font-weight:bold;
 }
 
 .booking-btn:hover{
@@ -343,29 +370,38 @@ body{
     color:#000;
 }
 
-/* ================= FOOTER ================= */
+/* CONTACT */
+
+.contact{
+    background:#fff;
+    padding:80px 8%;
+    text-align:center;
+}
+
+.contact h2{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    color:#666;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+/* FOOTER */
 
 footer{
     background:#111;
+    color:#888;
     text-align:center;
     padding:35px;
-    color:#888;
-    border-top:1px solid #2a2a2a;
+    border-top:1px solid #222;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 
 @media(max-width:950px){
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-        gap:50px;
-    }
-
-    .hero-content h1{
-        font-size:42px;
-    }
 
     .navbar{
         flex-direction:column;
@@ -377,19 +413,24 @@ footer{
         justify-content:center;
     }
 
-    .search-box input{
-        width:180px;
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:60px;
     }
 
-    .hero-drawing{
-        width:100%;
+    .hero-content h1{
+        font-size:42px;
+    }
+
+    .search-box input{
+        width:170px;
     }
 
     .circle-pizza{
         width:240px;
         height:240px;
     }
-
 }
 
 </style>
@@ -402,13 +443,23 @@ footer{
 <div class="top-bar">
 
     <div>
-        احجز الآن ☎ 000-000-000
+        احجز الآن ☎ 0653295230
     </div>
 
     <div class="top-icons">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
+
+        <a href="https://www.facebook.com/share/1CXQDx8Zkp/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://twitter.com/kingsfoodnews" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+
+        <a href="https://www.instagram.com/king.food10?igsh=MW9kbWd1dHFlYjMxbQ==" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
     </div>
 
 </div>
@@ -422,40 +473,49 @@ footer{
     </div>
 
     <div class="nav-links">
-        <a href="#">الرئيسية</a>
-        <a href="#">قائمة الطعام</a>
-        <a href="#">الحجز</a>
-        <a href="#">المدونة</a>
-        <a href="#">اتصل بنا</a>
+
+        <a href="#home">الرئيسية</a>
+        <a href="#menu">قائمة الطعام</a>
+        <a href="#booking">الحجز</a>
+        <a href="#blog">المدونة</a>
+        <a href="#contact">اتصل بنا</a>
+
     </div>
 
     <div class="search-box">
+
         <input type="text" placeholder="ابحث هنا">
+
         <button>
             <i class="fas fa-search"></i>
         </button>
+
     </div>
 
 </nav>
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="home">
 
     <div class="hero-content">
+
         <h1>
-            طعام عالي الجودة <span>Copy</span>
+            طعام عالي الجودة
+            <br>
+            لمذاق ملكي فاخر
         </h1>
 
         <p>
             نقدم تجربة فاخرة لعشاق المذاق الراقي،
-            أطباق شهية، مكونات طازجة،
-            وأجواء مميزة تجعلك تعيش تجربة ملكية.
+            أطباق شهية بمكونات طازجة،
+            وأجواء راقية تجعلك تعيش تجربة ملكية.
         </p>
 
-        <a href="#" class="hero-btn">
+        <a href="#menu" class="hero-btn">
             شاهد قائمة الطعام
         </a>
+
     </div>
 
     <div class="hero-drawing">
@@ -473,9 +533,17 @@ footer{
 
 </section>
 
-<!-- POSTS -->
+<!-- MENU -->
 
-<section class="posts">
+<section class="posts" id="menu">
+
+    <div class="section-title">
+
+        <h2>
+            قائمة <span>الطعام</span>
+        </h2>
+
+    </div>
 
     <div class="posts-grid">
 
@@ -484,12 +552,14 @@ footer{
             <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=1000">
 
             <div class="post-content">
+
                 <h3>عصائر منعشة</h3>
 
                 <p>
                     تشكيلة رائعة من العصائر الطبيعية
                     المحضرة يومياً بمكونات طازجة.
                 </p>
+
             </div>
 
         </div>
@@ -499,12 +569,14 @@ footer{
             <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=1000">
 
             <div class="post-content">
+
                 <h3>فطور فاخر</h3>
 
                 <p>
                     استمتع بأشهى أطباق الفطور
                     المحضرة بطريقة احترافية.
                 </p>
+
             </div>
 
         </div>
@@ -514,12 +586,14 @@ footer{
             <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1000">
 
             <div class="post-content">
+
                 <h3>أطباق صحية</h3>
 
                 <p>
                     وصفات صحية ومتوازنة
                     لمحبي الأكل الخفيف والطازج.
                 </p>
+
             </div>
 
         </div>
@@ -530,7 +604,7 @@ footer{
 
 <!-- BOOKING -->
 
-<section class="booking">
+<section class="booking" id="booking">
 
     <div class="booking-box">
 
@@ -538,25 +612,27 @@ footer{
             احجز <span>طاولتك</span>
         </h2>
 
-        <form id="resForm">
+        <form action="https://formspree.io/f/xaqvggzy" method="POST">
 
             <div class="form-group">
-                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="text" name="الاسم" placeholder="الاسم الكامل" required>
             </div>
 
             <div class="form-group">
-                <input type="number" placeholder="عدد الأشخاص" required>
+                <input type="number" name="عدد_الأشخاص" placeholder="عدد الأشخاص" required>
             </div>
 
             <div class="form-group">
-                <input type="date" required>
+                <input type="date" name="التاريخ" required>
             </div>
 
             <div class="form-group">
-                <select>
+
+                <select name="الوقت">
                     <option>وقت الغداء</option>
                     <option>وقت العشاء</option>
                 </select>
+
             </div>
 
             <button class="booking-btn">
@@ -569,8 +645,80 @@ footer{
 
 </section>
 
+<!-- BLOG -->
+
+<section class="posts" id="blog">
+
+    <div class="section-title">
+
+        <h2>
+            آخر <span>المقالات</span>
+        </h2>
+
+    </div>
+
+    <div class="posts-grid">
+
+        <div class="post-card">
+
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000">
+
+            <div class="post-content">
+
+                <h3>أفضل البيتزا الإيطالية</h3>
+
+                <p>
+                    تعرف على أسرار تحضير البيتزا
+                    الإيطالية الأصلية بطريقة احترافية.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="post-card">
+
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000">
+
+            <div class="post-content">
+
+                <h3>أشهى البرغر</h3>
+
+                <p>
+                    اكتشف ألذ وصفات البرغر
+                    المحضرة بمكونات عالية الجودة.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2>
+        اتصل بنا
+    </h2>
+
+    <p>📞 0653295230</p>
+
+    <p>📍 تيزي وزو - الجزائر</p>
+
+    <p>✉ kingfood@email.com</p>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer>
+
     © 2026 KING FOOD — جميع الحقوق محفوظة
+
 </footer>
 
 </body>
