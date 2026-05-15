@@ -189,7 +189,7 @@ body{
     color:#000;
 }
 
-/* PIZZA DESIGN */
+/* PIZZA */
 
 .hero-drawing{
     position:relative;
@@ -368,6 +368,46 @@ body{
 .booking-btn:hover{
     background:#fff;
     color:#000;
+}
+
+/* SUCCESS MESSAGE */
+
+#successMessage{
+    display:none;
+    text-align:center;
+    margin-top:30px;
+    background:#111;
+    padding:30px;
+    border:2px solid #28a745;
+    animation:fadeIn .5s ease;
+}
+
+#successMessage i{
+    font-size:70px;
+    color:#28a745;
+    margin-bottom:20px;
+}
+
+#successMessage h3{
+    color:#fff;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+#successMessage p{
+    color:#ccc;
+    font-size:18px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* CONTACT */
@@ -612,7 +652,7 @@ footer{
             احجز <span>طاولتك</span>
         </h2>
 
-        <form action="https://formspree.io/f/xaqvggzy" method="POST">
+        <form id="bookingForm">
 
             <div class="form-group">
                 <input type="text" name="الاسم" placeholder="الاسم الكامل" required>
@@ -635,11 +675,25 @@ footer{
 
             </div>
 
-            <button class="booking-btn">
+            <button type="submit" class="booking-btn" id="submitBtn">
                 احجز الآن
             </button>
 
         </form>
+
+        <div id="successMessage">
+
+            <i class="fas fa-check-circle"></i>
+
+            <h3>
+                تم الحجز بنجاح
+            </h3>
+
+            <p>
+                شكراً لاختياركم King Food ❤️
+            </p>
+
+        </div>
 
     </div>
 
@@ -720,6 +774,63 @@ footer{
     © 2026 KING FOOD — جميع الحقوق محفوظة
 
 </footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+const form = document.getElementById("bookingForm");
+
+form.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const btn = document.getElementById("submitBtn");
+
+    btn.innerHTML = "جاري الحجز...";
+    btn.disabled = true;
+
+    const data = new FormData(form);
+
+    try{
+
+        const response = await fetch("https://formspree.io/f/xaqvggzy",{
+            method:"POST",
+            body:data,
+            headers:{
+                'Accept':'application/json'
+            }
+        });
+
+        if(response.ok){
+
+            form.reset();
+
+            document.getElementById("successMessage").style.display = "block";
+
+            btn.innerHTML = "تم الحجز";
+
+        }else{
+
+            alert("حدث خطأ أثناء الحجز");
+
+            btn.innerHTML = "احجز الآن";
+
+            btn.disabled = false;
+        }
+
+    }catch(error){
+
+        alert("تحقق من اتصال الانترنت");
+
+        btn.innerHTML = "احجز الآن";
+
+        btn.disabled = false;
+    }
+
+});
+
+</script>
 
 </body>
     </html>
